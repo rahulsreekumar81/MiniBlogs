@@ -14,7 +14,10 @@ const BlogDetails = () => {
       {blog && (
         <article>
           <h2>{blog.title}</h2>
-          <p>{blog.author}</p>
+          <p style={{ color: "Black", fontSize: "20px" }}>
+            {" "}
+            Written By :{blog.author}
+          </p>
           <div>{blog.body}</div>
         </article>
       )}
