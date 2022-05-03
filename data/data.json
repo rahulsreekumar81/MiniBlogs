@@ -1,0 +1,22 @@
+{
+  "blogs": [
+    {
+      "title": "My first Blog",
+      "body": " Lorem ipsum lsfis lsdfosjf sjfosjfs osodfjwdfjsnf i like to move it you like to move it move it thank you.",
+      "author": "Mario",
+      "id": "1"
+    },
+    {
+      "title": "Queen's Gambit",
+      "body": " Lorem ipsum lsfis lsdfosjf sjfosjfs osodfjwdfjsnf i likec,mns jaknsda kaf  to move it you like to move it move it thank you.",
+      "author": "Yoshi",
+      "id": "2"
+    },
+    {
+      "title": "Hello Javascript",
+      "body": "My Javascript",
+      "author": "Boomas",
+      "id": "3"
+    }
+  ]
+}
