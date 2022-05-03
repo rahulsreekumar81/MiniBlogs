@@ -1,12 +1,30 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const CreateBlog = () => {
   const [title, setTitle] = useState("");
-  const [blogbody, setBLogBody] = useState("");
+  const [body, setBody] = useState("");
   const [author, setAuthor] = useState("Mario");
+  const [isPending, setIsPending] = useState(false);
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const blog = { title, body, author };
+    // console.log(blog);
+    setIsPending(true);
+    fetch(`http://localhost:8000/blogs`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      console.log("New blog is added");
+      setIsPending(false);
+      navigate("/");
+    });
+  };
   return (
     <div className="create">
       <h2>Add Blog</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Blog Title:</label>
         <input
           type="text"
@@ -17,8 +35,8 @@ const CreateBlog = () => {
         <label>Blog Content:</label>
         <textarea
           required
-          value={blogbody}
-          onChange={(event) => setBLogBody(event.target.value)}
+          value={body}
+          onChange={(event) => setBody(event.target.value)}
         ></textarea>
         <label>BLog Author:</label>
         <select
@@ -29,7 +47,8 @@ const CreateBlog = () => {
           <option value="Yoshi"> Yoshi</option>
           <option value="Luigi"> Luigi</option>
         </select>
-        <button>Add Blog</button>
+        {!isPending && <button>Add Blog</button>}
+        {isPending && <button disabled>Adding Blog...</button>}
       </form>
     </div>
   );
