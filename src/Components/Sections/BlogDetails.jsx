@@ -32,8 +32,14 @@ const BlogDetails = () => {
             Written By :{blog.author}
           </p>
           <div>{blog.body}</div>
-          {!isPending && <button onClick={handleDelete}>Delete</button>}
-          {isPending && <button>Deleting...</button>}
+
+          {!isPending ? (
+            <button onClick={handleDelete}>Delete</button>
+          ) : (
+            <button disabled> Deleting</button>
+          )}
+          {/* {!isPending && <button onClick={handleDelete}>Delete</button>} 
+          {isPending && <button>Deleting...</button>} */}
         </article>
       )}
     </div>
