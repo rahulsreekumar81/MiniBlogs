@@ -47,8 +47,11 @@ const CreateBlog = () => {
           <option value="Yoshi"> Yoshi</option>
           <option value="Luigi"> Luigi</option>
         </select>
-        {!isPending && <button>Add Blog</button>}
-        {isPending && <button disabled>Adding Blog...</button>}
+        {!isPending ? (
+          <button>Add Blogs</button>
+        ) : (
+          <button disabled>Adding..Blog!</button>
+        )}
       </form>
     </div>
   );
