@@ -52,6 +52,8 @@ const CreateBlog = () => {
         ) : (
           <button disabled>Adding..Blog!</button>
         )}
+        {/* {!isPending && <button>Add Blog</button>} 
+        {isPending && <button disabled>Adding Blog...</button>} */}
       </form>
     </div>
   );
